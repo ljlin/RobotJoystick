@@ -17,6 +17,7 @@
     UIImage *imgStickHold;
     
     CGPoint mCenter;
+    float radius;
 }
 
 @end

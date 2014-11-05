@@ -10,29 +10,29 @@
 	<string>RobotJoystick</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>6CBBE32D-2AA0-4408-A04B-998105CF5AE0</key>
+		<key>5E6F3D94AE916A396096A774EF0B45DCFC7B7B16</key>
 		<string>https://github.com/ljlin/RobotJoystick.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>RobotJoystick.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>6CBBE32D-2AA0-4408-A04B-998105CF5AE0</key>
+		<key>5E6F3D94AE916A396096A774EF0B45DCFC7B7B16</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/ljlin/RobotJoystick.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>6CBBE32D-2AA0-4408-A04B-998105CF5AE0</string>
+	<string>5E6F3D94AE916A396096A774EF0B45DCFC7B7B16</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>6CBBE32D-2AA0-4408-A04B-998105CF5AE0</string>
+			<string>5E6F3D94AE916A396096A774EF0B45DCFC7B7B16</string>
 			<key>IDESourceControlWCCName</key>
 			<string>RobotJoystick</string>
 		</dict>

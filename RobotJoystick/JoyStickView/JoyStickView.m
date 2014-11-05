@@ -8,7 +8,7 @@
 
 #import "JoyStickView.h"
 
-#define STICK_CENTER_TARGET_POS_LEN 20.0f
+#define STICK_CENTER_TARGET_POS_LEN 60
 
 @implementation JoyStickView
 
@@ -16,9 +16,9 @@
 {
     imgStickNormal = [UIImage imageNamed:@"stick_normal.png"];
     imgStickHold = [UIImage imageNamed:@"stick_hold.png"];
-//    stickView.image = imgStickNormal;
-    mCenter.x = self.frame.size.width / 2;
-    mCenter.y = self.frame.size.height/ 2;
+    stickView.image = imgStickNormal;
+    radius = self.frame.size.width / 2;
+    mCenter.x = mCenter.y = radius ;
 }
 
 - (id)initWithFrame:(CGRect)frame
@@ -88,11 +88,17 @@
     }
     else
     {
+        dtarget = CGPointMake(dir.x, dir.y);
+        if(len>radius){
+            double len_inv = (radius/len);
+            dtarget.x *= len_inv;
+            dtarget.y *= len_inv;
+        }
         double len_inv = (1.0 / len);
         dir.x *= len_inv;
         dir.y *= len_inv;
-        dtarget.x = dir.x * STICK_CENTER_TARGET_POS_LEN;
-        dtarget.y = dir.y * STICK_CENTER_TARGET_POS_LEN;
+        //dtarget.x = dir.x * STICK_CENTER_TARGET_POS_LEN;
+        //dtarget.y = dir.y * STICK_CENTER_TARGET_POS_LEN;
     }
     [self stickMoveTo:dtarget];
     

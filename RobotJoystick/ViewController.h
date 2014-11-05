@@ -10,7 +10,7 @@
 #import <CoreMotion/CoreMotion.h>
 #import "AsyncSocket/AsyncSocket.h"
 
-@interface ViewController : UIViewController<UITextFieldDelegate>
+@interface ViewController : UIViewController<UITextFieldDelegate,AsyncSocketDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 @property (weak, nonatomic) IBOutlet UITextField *HostTxtField;

@@ -24,7 +24,7 @@
                            selector: @selector (onStickChanged:)
                                name: @"StickChanged"
                              object: nil];
-    [self startExamine];
+    //[self startExamine];
 }
 - (NSArray*)ButtonList
 {
@@ -40,17 +40,16 @@
     self.motionManager.accelerometerUpdateInterval = 0.01;
     if ([self.motionManager isAccelerometerAvailable]){
         NSLog(@"Accelerometer is available.");
-        
         NSOperationQueue *queue = [[NSOperationQueue alloc] init];
         CMAccelerometerHandler handler = ^(CMAccelerometerData *accelerometerData, NSError *error){
             float dx = accelerometerData.acceleration.x,
-            dy = accelerometerData.acceleration.y,
-            dz = accelerometerData.acceleration.z;
+                  dy = accelerometerData.acceleration.y,
+                  dz = accelerometerData.acceleration.z;
             NSLog(@"x:%g y:%g z:%g",dx,dy,dz);
             self.textView.text = [NSString stringWithFormat:@"x:%g y:%g z:%g",dx,dy,dz];
         };
         [self.motionManager startAccelerometerUpdatesToQueue: queue
-                                            withHandler: handler];
+                                                 withHandler: handler];
     }
 }
 
@@ -58,8 +57,9 @@
 {
     self.socket = [[AsyncSocket alloc]initWithDelegate:self];
     NSString *host = self.HostTxtField.text;
-    UInt16    port = [self.PortTxtField.text intValue];
-    [self.socket connectToHost:host onPort:port error:nil];
+    UInt16    port = self.PortTxtField.text.intValue;
+    BOOL res = [self.socket connectToHost:host onPort:port error:nil];
+    NSLog(@"connect to %@ %d res %d",host,port,res);
 }
 
 - (void)onStickChanged:(id)notification
@@ -72,10 +72,15 @@
 
 - (IBAction)buttonTouchBegin:(UIButton *)sender forEvent:(UIEvent *)event
 {
-
+    if ([self.socket isConnected]) {
+        NSLog(@"=======");
+        NSData *data = [@"up" dataUsingEncoding:NSASCIIStringEncoding];
+        [self.socket writeData:data withTimeout:-1 tag:1];
+    }
+    
 }
 
-- (IBAction)buttonTouchEnd:(id)sender forEvent:(UIEvent *)event
+- (IBAction)buttonTouchEnd:(UIButton*)sender forEvent:(UIEvent *)event
 {
     
 }
